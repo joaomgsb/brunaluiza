@@ -3,6 +3,13 @@ import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 
 export const Footer = () => {
+  const handleEmailClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    const email = 'bruluiza97@gmail.com';
+    navigator.clipboard.writeText(email);
+    alert('Email copiado!');
+  };
+
   return (
     <footer className="w-full bg-secondary/30 mt-16">
       <div className="flex flex-col items-center justify-center py-12 px-4 w-full">
@@ -28,7 +35,10 @@ export const Footer = () => {
                 <Phone className="h-4 w-4" />
                 <span>+55 (31) 99517-0931</span>
               </div>
-              <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+              <div 
+                className="flex items-center justify-center gap-2 text-sm text-muted-foreground cursor-pointer hover:text-primary transition-colors"
+                onClick={handleEmailClick}
+              >
                 <Mail className="h-4 w-4" />
                 <span>bruluiza97@gmail.com</span>
               </div>
@@ -78,7 +88,7 @@ export const Footer = () => {
               className="hover:bg-primary/20"
             >
               <a
-                href="https://github.com/brunaluizadev"
+                href="https://github.com/bruboaventuraaa97"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
@@ -93,7 +103,7 @@ export const Footer = () => {
               className="hover:bg-primary/20"
             >
               <a
-                href="https://linkedin.com/in/brunaluizadev"
+                href="https://www.linkedin.com/in/bruna-luiza-moreira-boaventura-9313a714a/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -107,9 +117,13 @@ export const Footer = () => {
               asChild
               className="hover:bg-primary/20"
             >
-              <a href="mailto:bruluiza97@gmail.com" aria-label="Email">
+              <div
+                onClick={handleEmailClick}
+                className="cursor-pointer"
+                aria-label="Email"
+              >
                 <Mail className="h-5 w-5" />
-              </a>
+              </div>
             </Button>
           </div>
         </div>

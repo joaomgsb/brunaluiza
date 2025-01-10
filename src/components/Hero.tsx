@@ -2,6 +2,13 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const email = 'bruluiza97@gmail.com';
+    navigator.clipboard.writeText(email);
+    alert('Email copiado!');
+  };
+
   return (
     <section className="min-h-[90vh] flex flex-col justify-center items-center text-center px-4 animate-in relative">
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
@@ -27,7 +34,11 @@ export const Hero = () => {
           className="glass-effect hover:bg-primary/20 hover:border-primary/50"
           asChild
         >
-          <a href="mailto:bruluiza97@gmail.com" className="flex items-center gap-2">
+          <a 
+            href="#" 
+            onClick={handleContactClick}
+            className="flex items-center gap-2"
+          >
             <Mail className="w-4 h-4" />
             Contato
           </a>
@@ -39,7 +50,7 @@ export const Hero = () => {
           asChild
         >
           <a 
-            href="https://github.com/brunaluizadev" 
+            href="https://github.com/bruboaventuraaa97" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="flex items-center gap-2"
@@ -55,7 +66,7 @@ export const Hero = () => {
           asChild
         >
           <a 
-            href="https://linkedin.com/in/brunaluizadev" 
+            href="https://www.linkedin.com/in/bruna-luiza-moreira-boaventura-9313a714a/" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="flex items-center gap-2"
